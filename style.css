@@ -1,0 +1,26 @@
+*{
+    text-align: center;
+    justify-content: space-around;
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto Condensed', sans-serif;
+
+}
+
+body{
+    height: 100vh;
+}
+
+.container{
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+}
+
+#idRadio{
+    text-align: center;
+}
+
+#idCifra{
+    text-align: center;
+}
