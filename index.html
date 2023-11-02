@@ -9,23 +9,32 @@
 <body>
     <h1>Cifra de César</h1>
 
-    <form id="formularioCifra">
-        <div class="container">
-            <textarea id="mensagem" cols="30" rows="1"></textarea>
-            <div id="opcoesCifra">
-                <input type="radio" name="operacao" id="cifrar" value="cifrar" checked>
-                <label for="cifrar">Cifrar</label>
-                <input type="radio" name="operacao" id="decifrar" value="decifrar">
-                <label for="decifrar">Decifrar</label><br><br>
-            </div>
-            <div id="chaveCifra">
-                <label for="chave">Chave: </label>
-                <input type="text" name="chave" id="chave" maxlength="1"><br><br>
-            </div>
-            <button type="button" id="botaoExecutar">Resultado</button>
-            <output id="saida"></output>
+    <div class="container">
+        <h1>Cifra de César</h1>
+        <div class="grupo-entrada">
+            <label for="textoEntrada">Texto de Entrada</label>
+            <textarea id="textoEntrada" rows="10"></textarea>
         </div>
-    </form>
+        <div class="grupo-entrada">
+            <label for="chaveCifra">Chave:</label>
+            <input type="number" id="chaveCifra">
+        </div>
+        <div class="radios">
+            <label>
+                <input type="radio" name="metodoCesar" id="criptografar" value="cripto" checked>
+                Criptografar
+            </label>
+            <label>
+                <input type="radio" name="metodoCesar" id="descriptografar" value="decripto">
+                Descriptografar
+            </label>
+        </div>
+        <button type="button" class="btn">Resultado</button>
+        <div class="grupo-entrada">
+            <label for="textoSaida">Texto de Saída</label>
+            <textarea id="textoSaida" rows="10"></textarea>
+        </div>
+    </div>
 
     <script src="main.js"></script>
 </body>

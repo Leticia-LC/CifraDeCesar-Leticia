@@ -1,38 +1,36 @@
-function principal() {
-    const mensagem = document.getElementById("mensagem").value;
-    const operacao = document.querySelector('input[name=operacao]:checked').value;
-    const chaveInput = document.getElementById("chave").value;
-    const chave = analisarChaveCifra(chaveInput);
-    
-    const resultado = executarCifraCesar(mensagem, chave, operacao);
-    
-    document.getElementById("saida").value = resultado;
-}
+const alfabeto = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+const botaoEnviar = document.querySelector('.btn');
+const textareaSaida = document.querySelector('#textoSaida');
 
-function analisarChaveCifra(chaveInput) {
-    if (isNaN(chaveInput)) {
-        return chaveInput.toLowerCase().charCodeAt(0) - 'a'.charCodeAt(0) + 1;
-    } else {
-        return parseInt(chaveInput);
-    }
-}
+botaoEnviar.addEventListener('click', () => {
+    const textoEntrada = document.querySelector('#textoEntrada').value;
+    const chaveCifra = parseInt(document.querySelector('#chaveCifra').value);
+    const metodoCesar = document.querySelector('input[type="radio"]:checked').value;
+    let textoCifrado = '';
 
-function executarCifraCesar(mensagem, chave, operacao) {
-    const alfabeto = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-    
-    return mensagem.replace(/[a-zA-Z]/g, function (char) {
-        let base = char === char.toLowerCase() ? alfabeto : alfabeto.toLowerCase();
-        let index = base.indexOf(char);
-        
-        if (operacao === 'cifrar') {
-            index = (index + chave) % base.length;
-        } else if (operacao === 'decifrar') {
-            index = (index - chave + base.length) % base.length;
+    for (let i = 0; i < textoEntrada.length; i++) {
+        const caractere = textoEntrada[i];
+
+        if (caractere.match(/[A-Za-z]/)) {
+            const eMinuscula = caractere === caractere.toLowerCase();
+            const indiceCaractere = alfabeto.indexOf(caractere.toUpperCase());
+            let novoIndice;
+
+            if (metodoCesar === 'cripto') {
+                novoIndice = (indiceCaractere + chaveCifra) % 26;
+            } else {
+                novoIndice = (indiceCaractere - chaveCifra) % 26;
+                if (novoIndice < 0) {
+                    novoIndice += 26;
+                }
+            }
+
+            const novoCaractere = eMinuscula ? alfabeto[novoIndice].toLowerCase() : alfabeto[novoIndice];
+            textoCifrado += novoCaractere;
+        } else {
+            textoCifrado += caractere;
         }
-        
-        return base[index];
-    });
-}
+    }
 
-document.getElementById("botaoExecutar").addEventListener("click", principal);
-
+    textareaSaida.value = textoCifrado;
+});
