@@ -1,41 +1,79 @@
-textarea, input[type="text"] {
-    width: 100%;
+body {
+    background-color: #f0f7fa; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    font-family: 'Arial', sans-serif; 
+}
+
+.container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 50%;
+    width: 400px;
+    text-align: center;
+}
+
+h1 {
+    color: #1f487e; 
+    font-family: 'Roboto', sans-serif;
+}
+
+label, button {
+    color: #1f487e; 
+}
+
+textarea, input[type="number"] {
+    width: calc(100% - 20px);
     padding: 10px;
-    border: 1px solid #ccc;
+    border: 1px solid #1f487e;
+    font-family: 'Roboto', sans-serif;
     border-radius: 3px;
     margin: 10px 0;
 }
 
 button {
-    background-color: #007bff;
+    background-color: #1f487e; 
     color: #fff;
     padding: 10px 20px;
     border: none;
-    border-radius: 3px;
+    border-radius: 4px;
     cursor: pointer;
+    font-family: 'Roboto', sans-serif;
 }
 
 button:hover {
-    background-color: #0056b3;
+    background-color: #15325a; 
 }
 
-output {
+textarea, input[type="number"]:focus {
+    outline: none;
+    border-color: #007bff;
+    font-family: 'Roboto', sans-serif;
+}
+
+.output {
     font-weight: bold;
     margin-top: 10px;
     padding: 10px;
-    border: 1px solid #ccc;
+    border: 1px solid #1f487e; 
     border-radius: 3px;
     background-color: #f9f9f9;
+    font-family: 'Roboto', sans-serif;
 }
 
-#opcoesCifra {
+.radios {
     display: flex;
     justify-content: center;
     align-items: center;
     margin: 10px 0;
 }
 
-label {
+.radios label {
     margin-right: 10px;
 }
 
